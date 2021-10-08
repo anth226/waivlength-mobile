@@ -1,7 +1,7 @@
 const colors = (isDark = false) => ({
-    textPrimary: isDark ? 'white' : 'black',
-    textSecondary: isDark ? '#9D9CB4' : '#9C9BA2',
-    buttonPrimary: isDark ? '#845EE2' : '#408CFF',
+    textPrimary: isDark ? '#242A31' : '#242A31',
+    textSecondary: isDark ? '#25BDFE' : '#25BDFE',
+    buttonPrimary: isDark ? '#25BDFE' : '#25BDFE',
     green: '#27AE60',
     white: '#FFFFFF',
     background: isDark ? '#0D104F' : '#E5E5E5',
@@ -19,7 +19,9 @@ const colors = (isDark = false) => ({
     inputShadow: isDark ? 'rgba(117, 117, 117, 0.13)' : '#E5E5E5',
     tabInactive: '#9C9BA2',
     tabActive: isDark ? '#845EE2' : '#408CFF',
-    black: '#1E1E1E'
+    black: '#1E1E1E',
+    inputBorderInactive: isDark ? '#B6D8FF' : '#B6D8FF',
+    inputBorderActive: isDark ? '#25BDFE' : '#25BDFE',
 })
 
 export default colors

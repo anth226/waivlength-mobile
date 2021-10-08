@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native'
+import { View, Text, ImageBackground } from 'react-native'
 import { LoadingSpinner } from '../Components';
 import { connect } from 'react-redux';
-
+import { bg } from '../Assets';
 
 class Login extends Component {
 
@@ -32,9 +32,9 @@ class Login extends Component {
     render() {
 
         return (
-            <View >
+            <ImageBackground source={bg} style={{ flex: 1, resizeMode: 'cover', backgroundColor: '#fff' }} >
                 <Text>Login</Text>
-            </View>
+            </ImageBackground>
         )
     }
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { StatusBar, } from 'react-native'
 import { connect } from 'react-redux'
 import StartupActions from '../Redux/StartupRedux'
 import AppNavigation from '../Navigation'
@@ -35,7 +34,6 @@ class RootContainer extends Component {
   render() {
     return (
       <>
-        <StatusBar />
         <MenuProvider>
           <AppNavigation />
         </MenuProvider>
