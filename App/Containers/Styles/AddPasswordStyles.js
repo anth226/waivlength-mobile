@@ -22,13 +22,6 @@ const styles = (isDark = false) => {
             color: colors.textPrimary,
             marginBottom: getHeight(30)
         },
-        imagePlaceholder: {
-            alignSelf: 'center',
-            marginTop: getHeight(130),
-            width: getWidth(160),
-            height: getWidth(160),
-            resizeMode: 'contain'
-        }
     })
 }
 

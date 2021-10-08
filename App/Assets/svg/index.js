@@ -62,3 +62,30 @@ export function ButtonNext({ width = getWidth(80), height = getHeight(80) }) {
         </Svg>
     )
 }
+
+export function CrossButton({ width = getWidth(26), height = getHeight(26) }) {
+    return (
+        <Svg
+            width={width}
+            height={height}
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <Path
+                d="M13 23.833c5.983 0 10.833-4.85 10.833-10.833 0-5.983-4.85-10.833-10.833-10.833C7.017 2.167 2.167 7.017 2.167 13c0 5.983 4.85 10.833 10.833 10.833z"
+                fill="#fff"
+                stroke="#EB5757"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <Path
+                d="M16.25 9.75l-6.5 6.5M9.75 9.75l6.5 6.5"
+                stroke="#EB5757"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </Svg>
+    )
+}

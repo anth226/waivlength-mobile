@@ -57,5 +57,9 @@
 		<string>HelveticaNeueLight.ttf</string>
 		<string>HelveticaNeueMedium.ttf</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Waivlength App wants to access your Photo Library.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Waivlength App wants to access your Camera.</string>
 </dict>
 </plist>
