@@ -1,5 +1,5 @@
 import {
-  Login, Welcome, SignUp, Home, VerifyEmail, AddPassword, ProfilePicture
+  Login, Welcome, SignUp, Home, VerifyEmail, AddPassword, ProfilePicture, DescribeYourself, AddUsername
 } from '../Containers';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
@@ -27,6 +27,8 @@ const AppNavigation = ({ signedIn }) => {
             <Stack.Screen name="VerifyEmail" component={VerifyEmail} />
             <Stack.Screen name="AddPassword" component={AddPassword} />
             <Stack.Screen name="ProfilePicture" component={ProfilePicture} />
+            <Stack.Screen name="DescribeYourself" component={DescribeYourself} />
+            <Stack.Screen name="AddUsername" component={AddUsername} />
           </>
         }
       </Stack.Navigator>

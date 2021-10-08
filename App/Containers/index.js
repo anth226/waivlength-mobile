@@ -6,3 +6,5 @@ export { default as App } from './App';
 export { default as VerifyEmail } from './VerifyEmail';
 export { default as AddPassword } from './AddPassword';
 export { default as ProfilePicture } from './ProfilePicture';
+export { default as DescribeYourself } from './DescribeYourself';
+export { default as AddUsername } from './AddUsername';

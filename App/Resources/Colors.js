@@ -1,6 +1,6 @@
 const colors = (isDark = false) => ({
     textPrimary: isDark ? '#242A31' : '#242A31',
-    textSecondary: isDark ? '#25BDFE' : '#25BDFE',
+    textSecondary: isDark ? '#3B454E' : '#3B454E',
     buttonPrimary: isDark ? '#25BDFE' : '#25BDFE',
     green: '#27AE60',
     white: '#FFFFFF',

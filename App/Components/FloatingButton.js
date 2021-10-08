@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Keyboard, Pressable, Text } from "react-native";
+import { Keyboard, Pressable, Text, View } from "react-native";
 import { ButtonNext } from "../Assets/svg";
 import dynamicStyles from './Styles/FloatingButtonStyles';
 
@@ -21,10 +21,12 @@ const FloatingButton = ({ isDark, onPress, hasSkip, onSkip }) => {
     }, []);
 
     return (
-        <Pressable onPress={onPress} style={[styles.nextButton, keyboardOn && styles.floatButton]}>
+        <View style={[styles.nextButton, keyboardOn && styles.floatButton]}>
             {hasSkip && <Text style={styles.skipText} onPress={onSkip}>{'Skip'}</Text>}
-            <ButtonNext />
-        </Pressable>
+            <Pressable onPress={onPress}>
+                <ButtonNext />
+            </Pressable>
+        </View>
     );
 }
 

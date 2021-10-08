@@ -41,7 +41,7 @@ const styles = (isDark = false) => {
             marginBottom: getHeight(30)
         },
         emailText: {
-            color: colors.textSecondary
+            color: colors.buttonPrimary
         },
         resendButton: {
             ...Fonts.style.helvetica_neue_medium_16,

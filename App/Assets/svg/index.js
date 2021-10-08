@@ -89,3 +89,22 @@ export function CrossButton({ width = getWidth(26), height = getHeight(26) }) {
         </Svg>
     )
 }
+
+export function ArrowDown({ width = getWidth(12), height = getHeight(8) }) {
+    return (
+        <Svg
+            width={width}
+            height={height}
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <Path
+                d="M1 1.5l5 5 5-5"
+                stroke="#3B454E"
+                strokeWidth={1.8}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </Svg>
+    )
+}

@@ -8,6 +8,12 @@ import dynamicStyles from './Styles/ProfilePictureStyles';
 import * as ImagePicker from "react-native-image-picker"
 import ActionSheet from 'react-native-actionsheet'
 
+const options = {
+    storageOptions: {
+        skipBackup: true,
+        path: 'images',
+    },
+};
 
 class ProfilePicture extends Component {
     constructor(props) {
@@ -19,56 +25,31 @@ class ProfilePicture extends Component {
     }
 
     cameraLaunch = () => {
-        let options = {
-            storageOptions: {
-                skipBackup: true,
-                path: 'images'
-            },
-        };
-
         ImagePicker.launchCamera(options, (res) => {
-            console.log('Response = ', res);
-
-            if (res.didCancel) {
-                console.log('User cancelled image picker');
-            } else if (res.error) {
-                console.log('ImagePicker Error: ', res.error);
-            } else if (res.customButton) {
-                console.log('User tapped custom button: ', res.customButton);
-                alert(res.customButton);
-            } else {
-                const source = { uri: res.uri };
-                console.log('response', JSON.stringify(res));
-                this.setState({
-                    fileUri: res.uri
-                });
-            }
+            this.handleImage(res)
         });
     }
 
     imageGalleryLaunch = () => {
-        let options = {
-            storageOptions: {
-                skipBackup: true,
-                path: 'images',
-            },
-        };
         ImagePicker.launchImageLibrary(options, (res) => {
-
-            console.log('Response = ', res);
-            if (res.didCancel) {
-                console.log('User cancelled image picker');
-            } else if (res.error) {
-                console.log('ImagePicker Error: ', res.error);
-            } else {
-                const source = { uri: res.uri };
-                console.log('response', res);
-
-                this.setState({
-                    fileUri: res.assets[0].uri
-                });
-            }
+            this.handleImage(res)
         });
+    }
+
+    handleImage(res) {
+        console.log('Response = ', res);
+        if (res.didCancel) {
+            console.log('User cancelled image picker');
+        } else if (res.error) {
+            console.log('ImagePicker Error: ', res.error);
+        } else {
+            const source = { uri: res.uri };
+            console.log('response', res);
+
+            this.setState({
+                fileUri: res.assets[0].uri
+            });
+        }
     }
 
     componentDidMount() {
@@ -106,7 +87,7 @@ class ProfilePicture extends Component {
                             <Image source={addImage} style={styles.imagePlaceholder} />
                         }
                     </Pressable>
-                    <FloatingButton hasSkip onPress={() => { }} />
+                    <FloatingButton hasSkip onPress={() => navigation.navigate('DescribeYourself')} />
                 </Pressable>
                 <ActionSheet
                     ref={o => this.ActionSheet = o}
