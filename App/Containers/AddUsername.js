@@ -45,8 +45,8 @@ class AddUsername extends Component {
                     />
                     <View style={styles.suggestionView}>
                         <View style={{ flexDirection: 'row', flexWrap: 'wrap', flex: 1, paddingRight: 20 }}>
-                            <Text style={styles.recommendedText}>recommend<Text style={styles.blackText}>{', '}</Text></Text>
-                            <Text style={styles.recommendedText}>recommend<Text style={styles.blackText}>{', '}</Text></Text>
+                            <Text style={styles.recommendedText}>recommend</Text><Text style={styles.blackText}>{', '}</Text>
+                            <Text style={styles.recommendedText}>recommend</Text><Text style={styles.blackText}>{', '}</Text>
                             <Text style={styles.recommendedText}>recommend</Text>
                         </View>
                         <ArrowDown />
