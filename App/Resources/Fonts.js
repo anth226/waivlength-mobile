@@ -8,6 +8,7 @@ const family = {
 
 const size = {
     s10: getHeight(10),
+    s12: getHeight(12),
     s14: getHeight(14),
     s15: getHeight(15),
     s16: getHeight(16),
@@ -51,6 +52,10 @@ const style = {
         fontFamily: family.helvetica_neue_light,
         fontSize: size.s32,
     },
+    helvetica_neue_medium_12: {
+        fontFamily: family.helvetica_neue_medium,
+        fontSize: size.s12,
+    },
     helvetica_neue_medium_14: {
         fontFamily: family.helvetica_neue_medium,
         fontSize: size.s14,
@@ -74,6 +79,10 @@ const style = {
     helvetica_neue_medium_32: {
         fontFamily: family.helvetica_neue_medium,
         fontSize: size.s32,
+    },
+    helvetica_neue_bold_16: {
+        fontFamily: family.helvetica_neue_bold,
+        fontSize: size.s16,
     },
     helvetica_neue_bold_18: {
         fontFamily: family.helvetica_neue_bold,

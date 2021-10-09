@@ -51,7 +51,7 @@ class AddUsername extends Component {
                         </View>
                         <ArrowDown />
                     </View>
-                    <FloatingButton hasSkip onPress={() => navigation.navigate('VerifyEmail')} />
+                    <FloatingButton hasSkip onPress={() => navigation.navigate('CustomiseExperience')} />
                 </Pressable>
             </ImageBackground>
         )

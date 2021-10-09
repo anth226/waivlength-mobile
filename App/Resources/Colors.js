@@ -1,6 +1,7 @@
 const colors = (isDark = false) => ({
     textPrimary: isDark ? '#242A31' : '#242A31',
     textSecondary: isDark ? '#3B454E' : '#3B454E',
+    textTertiary: isDark ? '#8F95A6' : '#8F95A6',
     buttonPrimary: isDark ? '#25BDFE' : '#25BDFE',
     green: '#27AE60',
     white: '#FFFFFF',
@@ -22,6 +23,8 @@ const colors = (isDark = false) => ({
     black: '#1E1E1E',
     inputBorderInactive: isDark ? '#B6D8FF' : '#B6D8FF',
     inputBorderActive: isDark ? '#25BDFE' : '#25BDFE',
+    switchActive: '#25BDFE',
+    switchInactive: '#BFCBD6'
 })
 
 export default colors

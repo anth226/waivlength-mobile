@@ -45,7 +45,7 @@ export function EyeIconClose({ width = 24, height = 24, color = '#ADAEC4' }) {
     )
 }
 
-export function ButtonNext({ width = getWidth(80), height = getHeight(80) }) {
+export function ButtonNext({ width = getWidth(80), height = getWidth(80) }) {
     return (
         <Svg
             width={width}
@@ -63,7 +63,7 @@ export function ButtonNext({ width = getWidth(80), height = getHeight(80) }) {
     )
 }
 
-export function CrossButton({ width = getWidth(26), height = getHeight(26) }) {
+export function CrossButton({ width = getWidth(26), height = getWidth(26) }) {
     return (
         <Svg
             width={width}
@@ -90,7 +90,7 @@ export function CrossButton({ width = getWidth(26), height = getHeight(26) }) {
     )
 }
 
-export function ArrowDown({ width = getWidth(12), height = getHeight(8) }) {
+export function ArrowDown({ width = 12, height = 8 }) {
     return (
         <Svg
             width={width}

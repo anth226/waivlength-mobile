@@ -4,4 +4,8 @@ export { default as AppearanceProvider } from './AppearanceProvider';
 export { default as Button } from './Button';
 export { default as BeforeLoginHeader } from './BeforeLoginHeader';
 export { default as Input } from './Input';
+export { default as CustomiseExperienceCard } from './CustomiseExperienceCard';
 export { default as FloatingButton } from './FloatingButton';
+export { default as TagsCard } from './TagsCard';
+
+

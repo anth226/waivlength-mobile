@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ImageBackground, Pressable, Keyboard, Text, Image, View } from 'react-native'
+import { ImageBackground, Pressable, Text, Image, View } from 'react-native'
 import { BeforeLoginHeader, LoadingSpinner, FloatingButton } from '../Components';
 import { connect } from 'react-redux';
 import { bg, addImage, imageContainer } from '../Assets';
@@ -73,9 +73,9 @@ class ProfilePicture extends Component {
         return (
             <ImageBackground source={bg} style={styles.background} >
                 <BeforeLoginHeader title={'Pick a\nprofile picture'} />
-                <Pressable style={styles.container} onPress={() => Keyboard.dismiss()}>
+                <View style={styles.container}>
                     <Text style={styles.descText}>{'Have a favourite selfie? Upload it now.'}</Text>
-                    <Pressable onPress={() => this.ActionSheet.show()}>
+                    <Pressable onPress={() => this.ActionSheet.show()} disabled={fileUri}>
                         {fileUri ?
                             <View style={styles.selectedImageContainer}>
                                 <ImageBackground source={imageContainer} style={styles.imagePlaceholder}>
@@ -88,7 +88,7 @@ class ProfilePicture extends Component {
                         }
                     </Pressable>
                     <FloatingButton hasSkip onPress={() => navigation.navigate('DescribeYourself')} />
-                </Pressable>
+                </View>
                 <ActionSheet
                     ref={o => this.ActionSheet = o}
                     title={'Choose Picture'}

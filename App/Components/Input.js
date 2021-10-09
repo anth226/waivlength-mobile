@@ -14,6 +14,7 @@ const Input = ({
         <View style={[styles.mainContainer, active && styles.activeInput]}>
             <TextInput
                 editable={isEditable}
+                placeholderTextColor={colors.textTertiary}
                 value={value}
                 placeholder={placeholder}
                 onChangeText={onChangeText}
