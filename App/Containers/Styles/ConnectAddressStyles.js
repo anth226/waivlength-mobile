@@ -13,7 +13,8 @@ const styles = (isDark = false) => {
         container: {
             flex: 1,
             paddingHorizontal: getWidth(20),
-            paddingTop: getHeight(30)
+            paddingTop: getHeight(20),
+            paddingBottom: getHeight(44)
         },
         descText: {
             ...Fonts.style.helvetica_neue_medium_16,
@@ -30,12 +31,6 @@ const styles = (isDark = false) => {
             flexDirection: 'row',
             alignItems: 'center',
             width: '100%',
-            backgroundColor: colors.white,
-            paddingHorizontal: getWidth(15),
-            paddingVertical: getHeight(12),
-            borderRadius: getHeight(12),
-            borderWidth: getHeight(1),
-            borderColor: colors.inputBorderInactive,
             marginTop: getHeight(40)
         },
         contactDescText: {
@@ -43,6 +38,15 @@ const styles = (isDark = false) => {
             fontWeight: '400',
             lineHeight: getHeight(18),
             color: colors.textPrimary,
+            marginBottom: getHeight(41)
+        },
+        skipButton: {
+            ...Fonts.style.helvetica_neue_bold_16,
+            fontWeight: '700',
+            lineHeight: getHeight(20),
+            color: colors.textPrimary,
+            marginTop: getHeight(15),
+            alignSelf: 'center'
         }
     })
 }

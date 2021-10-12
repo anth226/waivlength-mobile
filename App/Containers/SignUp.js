@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ImageBackground, Pressable, Keyboard } from 'react-native'
-import { BeforeLoginHeader, LoadingSpinner, Input, FloatingButton } from '../Components';
+import { ImageBackground, Pressable, Keyboard, View, Text } from 'react-native'
+import { BeforeLoginHeader, Input, FloatingView, Button } from '../Components';
 import { connect } from 'react-redux';
 import { bg } from '../Assets';
 import dynamicStyles from './Styles/SignUpStyles';
@@ -34,14 +34,22 @@ class SignUp extends Component {
         const styles = dynamicStyles(isDark)
         return (
             <ImageBackground source={bg} style={styles.background} >
-                <BeforeLoginHeader title={'Create\nyour account'} />
-                <Pressable style={styles.container} onPress={() => Keyboard.dismiss()}>
-                    <Input
-                        value={email}
-                        placeholder={'Enter your email'}
-                        onChangeText={(email) => this.setState({ email })}
-                    />
-                    <FloatingButton onPress={() => navigation.navigate('VerifyEmail')} />
+                <Pressable style={{ flex: 1 }} onPress={() => Keyboard.dismiss()}>
+                    <FloatingView isDark={isDark} content={
+                        <>
+                            <BeforeLoginHeader title={'Let’s get\nstarted'} />
+                            <View style={styles.container}>
+                                <Text style={styles.descText}>Please enter your email</Text>
+                                <Input
+                                    value={email}
+                                    placeholder={'Enter your email'}
+                                    onChangeText={(email) => this.setState({ email })}
+                                    inputContainerStyle={styles.inputContainerStyle}
+                                />
+                                <Button title={'Next'} hasArrow onPress={() => navigation.navigate('VerifyEmail')} />
+                            </View>
+                        </>
+                    } />
                 </Pressable>
             </ImageBackground>
         )

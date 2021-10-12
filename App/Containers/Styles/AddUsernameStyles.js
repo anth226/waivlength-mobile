@@ -13,14 +13,15 @@ const styles = (isDark = false) => {
         container: {
             flex: 1,
             paddingHorizontal: getWidth(20),
-            paddingTop: getHeight(30)
+            paddingTop: getHeight(20),
+            paddingBottom: getHeight(44)
         },
         descText: {
             ...Fonts.style.helvetica_neue_medium_16,
             fontWeight: '400',
             lineHeight: getHeight(22),
             color: colors.textPrimary,
-            marginBottom: getHeight(30)
+            marginBottom: getHeight(20)
         },
         suggestionView: {
             flexDirection: 'row',
@@ -32,7 +33,8 @@ const styles = (isDark = false) => {
             borderRadius: getHeight(12),
             borderWidth: getHeight(1),
             borderColor: colors.inputBorderInactive,
-            marginTop: getHeight(10)
+            marginTop: getHeight(10),
+            marginBottom: getHeight(20)
         },
         recommendedText: {
             ...Fonts.style.helvetica_neue_medium_14,
@@ -45,6 +47,14 @@ const styles = (isDark = false) => {
         },
         blackText: {
             color: colors.textPrimary
+        },
+        skipButton: {
+            ...Fonts.style.helvetica_neue_bold_16,
+            fontWeight: '700',
+            lineHeight: getHeight(20),
+            color: colors.textPrimary,
+            marginTop: getHeight(15),
+            alignSelf: 'center'
         }
     })
 }

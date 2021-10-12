@@ -11,10 +11,21 @@ const styles = (isDark = false) => {
             backgroundColor: colors.white
         },
         container: {
-            flex: 1,
+            backgroundColor: colors.white,
             paddingHorizontal: getWidth(20),
-            paddingTop: getHeight(30)
+            paddingTop: getHeight(20),
+            paddingBottom: getHeight(44)
         },
+        descText: {
+            ...Fonts.style.helvetica_neue_medium_16,
+            fontWeight: '400',
+            lineHeight: getHeight(22),
+            color: colors.textPrimary,
+            marginBottom: getHeight(20)
+        },
+        inputContainerStyle: {
+            marginBottom: getHeight(64)
+        }
     })
 }
 

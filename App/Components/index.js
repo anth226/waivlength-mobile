@@ -7,5 +7,6 @@ export { default as Input } from './Input';
 export { default as CustomiseExperienceCard } from './CustomiseExperienceCard';
 export { default as FloatingButton } from './FloatingButton';
 export { default as TagsCard } from './TagsCard';
+export { default as FloatingView } from './FloatingView';
 
 

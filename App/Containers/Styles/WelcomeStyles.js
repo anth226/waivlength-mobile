@@ -7,6 +7,7 @@ const styles = (isDark = false) => {
     return StyleSheet.create({
         container: {
             flex: 1,
+            backgroundColor: colors.normalBlue
         },
         backgroundVideo: {
             position: 'absolute',
@@ -18,21 +19,14 @@ const styles = (isDark = false) => {
         main: {
             flex: 1,
             alignItems: 'center',
-            justifyContent: 'space-between',
-            backgroundColor: 'rgba(0, 0, 0, 0.2)'
-        },
-        topView: {
-            paddingTop: getHeight(130)
-        },
-        bottomView: {
-            paddingBottom: getHeight(54)
         },
         titleText: {
-            ...Fonts.style.helvetica_neue_bold_24,
+            ...Fonts.style.helvetica_neue_bold_20,
             fontWeight: '700',
+            lineHeight: getHeight(24),
             color: colors.white,
             textAlign: 'center',
-            marginBottom: getHeight(25)
+            marginTop: getHeight(8)
         },
         policyText: {
             ...Fonts.style.helvetica_neue_medium_14,
@@ -40,6 +34,7 @@ const styles = (isDark = false) => {
             paddingHorizontal: getWidth(86),
             color: colors.white,
             textAlign: 'center',
+            marginTop: getHeight(34)
         },
         andText: {
             ...Fonts.style.helvetica_neue_medium_14,
@@ -58,16 +53,27 @@ const styles = (isDark = false) => {
         tandcView: {
             flexDirection: 'row',
             alignSelf: 'center',
-            marginBottom: getHeight(20)
+            marginBottom: getHeight(25)
         },
-        logo: {},
+        logo: {
+            width: getWidth(253),
+            height: getHeight(46),
+            marginTop: getHeight(63)
+        },
+        graphic: {
+            width: getWidth(375)
+        },
         loginButton: {
             ...Fonts.style.helvetica_neue_bold_18,
             fontWeight: '700',
             color: colors.white,
             textAlign: 'center',
             alignSelf: 'center',
-            marginTop: getHeight(18)
+            marginTop: getHeight(23)
+        },
+        buttonContainer: {
+            width: '100%',
+            paddingHorizontal: getWidth(27),
         }
     })
 }

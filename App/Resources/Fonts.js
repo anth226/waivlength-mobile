@@ -20,6 +20,7 @@ const size = {
     s24: getHeight(24),
     s32: getHeight(32),
     s34: getHeight(34),
+    s36: getHeight(36),
     s42: getHeight(42)
 }
 
@@ -103,6 +104,10 @@ const style = {
     helvetica_neue_bold_34: {
         fontFamily: family.helvetica_neue_bold,
         fontSize: size.s34,
+    },
+    helvetica_neue_bold_36: {
+        fontFamily: family.helvetica_neue_bold,
+        fontSize: size.s36,
     }
 }
 

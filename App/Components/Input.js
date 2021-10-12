@@ -6,12 +6,12 @@ import { Colors } from '../Resources';
 import { useState } from 'react';
 
 const Input = ({
-    value, onChangeText, isSecure, placeholder, inputStyle, showText, onRightButtonPress, isDark, isEditable = true, keyboardType, maxLength, onFocus, onEndEditing }) => {
+    value, onChangeText, isSecure, placeholder, inputStyle, inputContainerStyle, showText, onRightButtonPress, isDark, isEditable = true, keyboardType, maxLength, onFocus, onEndEditing }) => {
     const [active, setActive] = useState(false)
     const styles = dynamicStyles(isDark);
     const colors = Colors(isDark);
     return (
-        <View style={[styles.mainContainer, active && styles.activeInput]}>
+        <View style={[styles.mainContainer, active && styles.activeInput, inputContainerStyle]}>
             <TextInput
                 editable={isEditable}
                 placeholderTextColor={colors.textTertiary}

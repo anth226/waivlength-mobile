@@ -13,7 +13,8 @@ const styles = (isDark = false) => {
         container: {
             flex: 1,
             paddingHorizontal: getWidth(20),
-            paddingTop: getHeight(30)
+            paddingTop: getHeight(20),
+            paddingBottom: getHeight(44)
         },
         otpView: {
             width: '100%',
@@ -38,7 +39,7 @@ const styles = (isDark = false) => {
             fontWeight: '400',
             lineHeight: getHeight(22),
             color: colors.textPrimary,
-            marginBottom: getHeight(30)
+            marginBottom: getHeight(20)
         },
         emailText: {
             color: colors.buttonPrimary
@@ -49,6 +50,7 @@ const styles = (isDark = false) => {
             lineHeight: getHeight(22),
             color: colors.textPrimary,
             marginTop: getHeight(20),
+            marginBottom: getHeight(70),
             textDecorationColor: colors.textPrimary,
             textDecorationStyle: 'solid',
             textDecorationLine: 'underline',

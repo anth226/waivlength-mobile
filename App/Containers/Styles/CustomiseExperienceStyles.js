@@ -13,7 +13,8 @@ const styles = (isDark = false) => {
         container: {
             flex: 1,
             paddingHorizontal: getWidth(20),
-            paddingTop: getHeight(30)
+            paddingTop: getHeight(20),
+            paddingBottom: getHeight(44)
         },
         descText: {
             ...Fonts.style.helvetica_neue_medium_16,
@@ -27,12 +28,21 @@ const styles = (isDark = false) => {
             fontWeight: '400',
             lineHeight: getHeight(20),
             color: colors.textTertiary,
+            marginBottom: getHeight(180)
         },
         helpText2: {
             color: colors.textPrimary,
             textDecorationColor: colors.textPrimary,
             textDecorationStyle: 'solid',
             textDecorationLine: 'underline'
+        },
+        skipButton: {
+            ...Fonts.style.helvetica_neue_bold_16,
+            fontWeight: '700',
+            lineHeight: getHeight(20),
+            color: colors.textPrimary,
+            marginTop: getHeight(15),
+            alignSelf: 'center'
         }
     })
 }

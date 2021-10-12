@@ -11,14 +11,18 @@ const styles = (isDark = false) => {
             justifyContent: 'center',
             backgroundColor: colors.buttonPrimary,
             alignSelf: 'center',
-            width: getWidth(320),
-            borderRadius: getHeight(27)
+            width: '100%',
+            borderRadius: getHeight(27),
+            flexDirection: 'row'
         },
         buttonText: {
-            ...Fonts.style.helvetica_neue_bold_18,
+            ...Fonts.style.helvetica_neue_bold_16,
             color: colors.white,
             fontWeight: '700',
         },
+        hasArrow: {
+            marginRight: getWidth(10)
+        }
     })
 }
 

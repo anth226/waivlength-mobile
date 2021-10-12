@@ -7,13 +7,7 @@ const styles = (isDark = false) => {
     return StyleSheet.create({
         container: {
             width: '100%',
-            backgroundColor: colors.white,
-            paddingHorizontal: getWidth(15),
-            paddingTop: getHeight(12),
-            borderRadius: getHeight(12),
-            borderWidth: getHeight(1),
-            borderColor: colors.inputBorderInactive,
-            marginTop: getHeight(10)
+            marginTop: getHeight(5)
         },
         titleText: {
             ...Fonts.style.helvetica_neue_medium_16,

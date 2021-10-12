@@ -13,18 +13,19 @@ const styles = (isDark = false) => {
         container: {
             flex: 1,
             paddingHorizontal: getWidth(20),
-            paddingTop: getHeight(30)
+            paddingTop: getHeight(20),
+            paddingBottom: getHeight(44)
         },
         descText: {
             ...Fonts.style.helvetica_neue_medium_16,
             fontWeight: '400',
             lineHeight: getHeight(22),
             color: colors.textPrimary,
-            marginBottom: getHeight(30)
+            marginBottom: getHeight(40)
         },
         imagePlaceholder: {
             alignSelf: 'center',
-            marginTop: getHeight(130),
+            marginBottom: getHeight(224),
             width: getWidth(160),
             height: getWidth(160),
             resizeMode: 'contain',
@@ -40,8 +41,17 @@ const styles = (isDark = false) => {
             alignSelf: 'center'
         },
         closeButton: {
-            alignSelf: 'center',
-            right: getWidth(20)
+            // alignSelf: 'center',
+            right: getWidth(20),
+            top: 0,
+        },
+        skipButton: {
+            ...Fonts.style.helvetica_neue_bold_16,
+            fontWeight: '700',
+            lineHeight: getHeight(20),
+            color: colors.textPrimary,
+            marginTop: getHeight(15),
+            alignSelf: 'center'
         }
     })
 }

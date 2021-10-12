@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ImageBackground, Pressable, Text, Image, View } from 'react-native'
-import { BeforeLoginHeader, LoadingSpinner, FloatingButton } from '../Components';
+import { BeforeLoginHeader, LoadingSpinner, FloatingButton, FloatingView, Button } from '../Components';
 import { connect } from 'react-redux';
 import { bg, addImage, imageContainer } from '../Assets';
 import { CrossButton } from '../Assets/svg';
@@ -72,22 +72,30 @@ class ProfilePicture extends Component {
         const styles = dynamicStyles(isDark)
         return (
             <ImageBackground source={bg} style={styles.background} >
-                <BeforeLoginHeader title={'Pick a\nprofile picture'} />
-                <View style={styles.container}>
-                    <Text style={styles.descText}>{'Have a favourite selfie? Upload it now.'}</Text>
-                    <Pressable onPress={() => this.ActionSheet.show()} disabled={fileUri}>
-                        {fileUri ?
-                            <View style={styles.selectedImageContainer}>
-                                <ImageBackground source={imageContainer} style={styles.imagePlaceholder}>
-                                    <Image source={{ uri: fileUri }} resizeMode={'cover'} style={styles.selectedImage} />
-                                </ImageBackground>
-                                {fileUri && <Pressable style={styles.closeButton} onPress={() => this.setState({ fileUri: null })}><CrossButton /></Pressable>}
+                <View style={{ flex: 1 }}>
+                    <FloatingView isDark={isDark} content={
+                        <>
+                            <BeforeLoginHeader title={'Pick a\nprofile picture'} />
+                            <View style={styles.container}>
+                                <Text style={styles.descText}>{'Have a favourite selfie? Upload it now.'}</Text>
+                                <Pressable onPress={() => this.ActionSheet.show()} disabled={fileUri}>
+                                    {fileUri ?
+                                        <View style={styles.selectedImageContainer}>
+                                            <ImageBackground source={imageContainer} style={styles.imagePlaceholder}>
+                                                <Image source={{ uri: fileUri }} resizeMode={'cover'} style={styles.selectedImage} />
+                                            </ImageBackground>
+                                            {fileUri && <Pressable style={styles.closeButton} onPress={() => this.setState({ fileUri: null })}><CrossButton /></Pressable>}
+                                        </View>
+                                        :
+                                        <Image source={addImage} style={styles.imagePlaceholder} />
+                                    }
+                                </Pressable>
+                                <Button isDark={isDark} title={'Next'} hasArrow onPress={() => navigation.navigate('DescribeYourself')} />
+                                <Text style={styles.skipButton}>{'Not now'}</Text>
                             </View>
-                            :
-                            <Image source={addImage} style={styles.imagePlaceholder} />
-                        }
-                    </Pressable>
-                    <FloatingButton hasSkip onPress={() => navigation.navigate('DescribeYourself')} />
+                        </>
+                    }
+                    />
                 </View>
                 <ActionSheet
                     ref={o => this.ActionSheet = o}

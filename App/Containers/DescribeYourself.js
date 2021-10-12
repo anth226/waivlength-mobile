@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ImageBackground, Pressable, Keyboard, Text } from 'react-native'
-import { BeforeLoginHeader, LoadingSpinner, Input, FloatingButton } from '../Components';
+import { ImageBackground, Pressable, Keyboard, Text, View } from 'react-native'
+import { BeforeLoginHeader, Input, FloatingView, Button } from '../Components';
 import { connect } from 'react-redux';
 import { bg } from '../Assets';
 import dynamicStyles from './Styles/DescribeYourselfStyles';
@@ -34,16 +34,24 @@ class DescribeYourself extends Component {
         const styles = dynamicStyles(isDark)
         return (
             <ImageBackground source={bg} style={styles.background} >
-                <BeforeLoginHeader title={'Describe\nyourself'} />
-                <Pressable style={styles.container} onPress={() => Keyboard.dismiss()}>
-                    <Text style={styles.descText}>{'What makes you special?\nDon’t think too hard, just have fun with it.'}</Text>
-                    <Input
-                        value={email}
-                        placeholder={'Your bio...'}
-                        onChangeText={(email) => this.setState({ email })}
+                <Pressable style={{ flex: 1 }} onPress={() => Keyboard.dismiss()}>
+                    <FloatingView isDark={isDark} content={
+                        <>
+                            <BeforeLoginHeader title={'Describe\nyourself'} />
+                            <View style={styles.container}>
+                                <Text style={styles.descText}>{'What makes you special?\nDon’t think too hard, just have fun with it.'}</Text>
+                                <Input
+                                    value={email}
+                                    placeholder={'Your bio...'}
+                                    onChangeText={(email) => this.setState({ email })}
+                                />
+                                <Text style={styles.limitText}>{'Maximum 160 characters'}</Text>
+                                <Button isDark={isDark} title={'Next'} hasArrow onPress={() => navigation.navigate('AddUsername')} />
+                                <Text style={styles.skipButton}>{'Not now'}</Text>
+                            </View>
+                        </>
+                    }
                     />
-                    <Text style={styles.limitText}>{'Maximum 160 characters'}</Text>
-                    <FloatingButton hasSkip onPress={() => navigation.navigate('AddUsername')} />
                 </Pressable>
             </ImageBackground>
         )

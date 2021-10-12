@@ -13,7 +13,8 @@ const styles = (isDark = false) => {
         container: {
             flex: 1,
             paddingHorizontal: getWidth(20),
-            paddingTop: getHeight(30)
+            paddingTop: getHeight(20),
+            paddingBottom: getHeight(44)
         },
         descText: {
             ...Fonts.style.helvetica_neue_medium_16,
@@ -22,6 +23,9 @@ const styles = (isDark = false) => {
             color: colors.textPrimary,
             marginBottom: getHeight(30)
         },
+        inputContainerStyle: {
+            marginBottom: getHeight(120)
+        }
     })
 }
 

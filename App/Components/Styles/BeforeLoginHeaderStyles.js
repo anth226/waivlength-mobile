@@ -9,15 +9,14 @@ const styles = (isDark = false) => {
             paddingHorizontal: getWidth(20),
         },
         titleText: {
-            ...Fonts.style.helvetica_neue_bold_34,
+            ...Fonts.style.helvetica_neue_bold_36,
             color: colors.textPrimary,
             fontWeight: '700',
-            fontSize: getHeight(34),
             lineHeight: getHeight(38)
         },
         headerMain: {
-            paddingTop: getHeight(18),
-            paddingBottom: getHeight(22)
+            paddingTop: getHeight(22.5),
+            paddingBottom: getHeight(12.5)
         }
     })
 }

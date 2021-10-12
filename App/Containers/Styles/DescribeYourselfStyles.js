@@ -13,7 +13,8 @@ const styles = (isDark = false) => {
         container: {
             flex: 1,
             paddingHorizontal: getWidth(20),
-            paddingTop: getHeight(30)
+            paddingTop: getHeight(20),
+            paddingBottom: getHeight(44)
         },
         descText: {
             ...Fonts.style.helvetica_neue_medium_16,
@@ -23,12 +24,21 @@ const styles = (isDark = false) => {
             marginBottom: getHeight(30)
         },
         limitText: {
-            ...Fonts.style.helvetica_neue_medium_14,
+            ...Fonts.style.helvetica_neue_medium_12,
             fontWeight: '400',
-            lineHeight: getHeight(20),
-            color: colors.textSecondary,
+            lineHeight: getHeight(14),
+            color: colors.textTertiary,
             marginTop: getHeight(5),
-            textAlign: 'right'
+            textAlign: 'right',
+            marginBottom: getHeight(30),
+        },
+        skipButton: {
+            ...Fonts.style.helvetica_neue_bold_16,
+            fontWeight: '700',
+            lineHeight: getHeight(20),
+            color: colors.textPrimary,
+            marginTop: getHeight(15),
+            alignSelf: 'center'
         }
     })
 }

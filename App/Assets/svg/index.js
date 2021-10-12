@@ -108,3 +108,22 @@ export function ArrowDown({ width = 12, height = 8 }) {
         </Svg>
     )
 }
+
+export function ArrowRight({ width = 8, height = 12, color = '#fff' }) {
+    return (
+        <Svg
+            width={width}
+            height={height}
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <Path
+                d="M1.75 10.5L6.25 6l-4.5-4.5"
+                stroke={color}
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </Svg>
+    )
+}
