@@ -15,6 +15,8 @@ import { AppTypes } from '../Redux/AppRedux'
 import { startup } from './StartupSagas'
 import {
     login,
+    forgotPassword,
+    uploadImage,
     logOut,
     signup,
 } from './ApiSagas'
@@ -30,9 +32,11 @@ export const userApi = UserAPI.create()
 
 export default function* root() {
     yield all([
-        takeLatest(StartupTypes.STARTUP, startup),
         takeLatest(AppTypes.LOGIN, login, userApi),
         takeLatest(AppTypes.SIGNUP, signup, userApi),
+        takeLatest(AppTypes.FORGOT_PASSWORD, forgotPassword, userApi),
+        takeLatest(AppTypes.UPLOAD_IMAGE, uploadImage, userApi),
+
         takeLatest(AppTypes.SIGN_OUT, logOut, userApi),
     ])
 }

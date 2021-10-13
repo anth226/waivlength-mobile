@@ -50,10 +50,45 @@ function* retrySaga(apiRequest, params, headers) {
 
 export function* login(api, action) {
     const { username, password } = action
+    const response = yield call(firebaseAuth, username, password)
+    if (response && response.user) {
+        let tokenId = yield response.user.getIdToken()
+        const headers = {
+            'Authorization': `Bearer ${tokenId}`,
+        }
+        const statusRes = yield call(retrySaga, api.status, headers)
+        console.log(statusRes)
+        if (statusRes.ok && statusRes.data.OK) {
+            const profileRef = yield call(retrySaga, api.getProfile, headers)
+            yield put(AppActions.loginSuccess(tokenId, response.user.uid, profileRef.data.profile))
+        } else {
+            yield put(AppActions.loginFailure(response && response.data && response.data.error ? `${response.data.error} + ${response.data.message}` : ''))
+        }
+    } else {
+        yield put(AppActions.loginFailure(response && response.code ? `${response.message} + ${response.code}` : ''))
+    }
 }
 
 export function* signup(api, action) {
     const { email, password, code } = action
+    let formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("code", code);
+    let headers = yield call(getHeader)
+    const response = yield call(retrySaga, api.signup, formData, headers)
+    console.log(response)
+    if (response.ok && response.data.OK) {
+        const fbRes = yield call(firebaseAuth, email, password)
+        if (fbRes && fbRes.user) {
+            let tokenId = yield fbRes.user.getIdToken()
+            yield put(AppActions.signupSuccess(tokenId, response.data.profile.user_uid, response.data.profile))
+        } else {
+            yield put(AppActions.signupFailure(response && response.data && response.data.error ? `${response.data.error} + ${response.data.message}` : ''))
+        }
+    } else {
+        yield put(AppActions.signupFailure(response && response.data && response.data.error ? `${response.data.error} + ${response.data.message}` : ''))
+    }
 
 }
 

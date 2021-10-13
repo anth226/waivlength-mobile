@@ -8,17 +8,33 @@ const create = (baseURL = BASE_URL) => {
         timeout: 60000
     })
 
-    const logout = (data, headers) => {
-        return api.post('/user/logout', data, { headers })
+
+    const registerEmail = (data, headers) => {
+        return api.post(`${API_VERSION_1}${APIs.registerEmail}`, data, { headers })
     }
 
-    const signup = (data, headers) => {
-        return api.post(`${API_VERSION_1}${APIs.signup}`, data, { headers })
+    const registerPassword = (data, headers) => {
+        return api.post(`${API_VERSION_1}${APIs.registerPassword}`, data, { headers })
+    }
+
+    const verifyEmail = (data, headers) => {
+        return api.post(`${API_VERSION_1}${APIs.verifyEmail}`, data, { headers })
+    }
+
+    const sendToken = (data, headers) => {
+        return api.post(`${API_VERSION_1}${APIs.sendToken}`, data, { headers })
+    }
+
+    const refreshToken = (data, headers) => {
+        return api.post(`${API_VERSION_1}${APIs.refreshToken}`, data, { headers })
     }
 
     return {
-        logout,
-        signup,
+        registerEmail,
+        registerPassword,
+        verifyEmail,
+        sendToken,
+        refreshToken
     }
 }
 
