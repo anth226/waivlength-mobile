@@ -5,33 +5,59 @@ import { connect } from 'react-redux';
 import { bg } from '../Assets';
 import dynamicStyles from './Styles/AddUsernameStyles';
 import { ArrowDown } from '../Assets/svg';
+import { STRING_UTILS } from '../Utils';
+import AppActions from '../Redux/AppRedux';
 
 class AddUsername extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            email: '',
+            username: '',
+            isvalidEmail:true
         }
     }
 
     componentDidMount() {
+     
     }
 
     componentWillUnmount() {
     }
 
-    onSignUp = async () => {
+   
+  onRegisterEmail = async () => {
+        const { username, isvalidEmail } = this.state;
+        const { registerEmail, navigation } = this.props;
+        const {params} = this.props.route;
+        const email = params.email
 
-    }
-
+        if (email === '' || !STRING_UTILS.validateEmail(email)) {
+            this.setState({ isvalidEmail: false })
+        }
+        setTimeout(() => {
+            const { isvalidEmail } = this.state;
+            if (isvalidEmail) {
+                registerEmail(email,username)
+            }
+        }, 300)  
+  }
     componentDidUpdate(prevProps) {
-
+        const {params} = this.props.route;
+        const email = params.email
+        const {registerEmailSuccess, errorMessage,navigation} = this.props;
+        if(registerEmailSuccess != prevProps.registerEmailSuccess && registerEmailSuccess != null){
+            if(registerEmailSuccess){
+                navigation.navigate('VerifyEmail',{email:email})
+            }else{
+                alert(`${errorMessage}`)
+            }
+        }
     }
 
     render() {
-        const { email } = this.state;
-        const { isDark, navigation } = this.props;
+        const { username } = this.state;
+        const { isDark, navigation, isLoading } = this.props;
         const styles = dynamicStyles(isDark)
         return (
             <ImageBackground source={bg} style={styles.background} >
@@ -42,9 +68,9 @@ class AddUsername extends Component {
                             <View style={styles.container}>
                                 <Text style={styles.descText}>{'Your username is unique. You can change it later.'}</Text>
                                 <Input
-                                    value={email}
+                                    value={username}
                                     placeholder={'User name'}
-                                    onChangeText={(email) => this.setState({ email })}
+                                    onChangeText={(username) => this.setState({ username })}
                                 />
                                 <View style={styles.suggestionView}>
                                     <View style={{ flexDirection: 'row', flexWrap: 'wrap', flex: 1, paddingRight: 20 }}>
@@ -54,13 +80,14 @@ class AddUsername extends Component {
                                     </View>
                                     <ArrowDown />
                                 </View>
-                                <Button hasArrow title={'Next'} onPress={() => navigation.navigate('CustomiseExperience')} />
+                                <Button hasArrow title={'Next'} onPress={() => this.onRegisterEmail()} />
                                 <Text style={styles.skipButton}>{'Not now'}</Text>
                             </View>
                         </>
                     }
                     />
                 </Pressable>
+                <LoadingSpinner isDark={isDark} isLoading={isLoading} />
             </ImageBackground>
         )
     }
@@ -68,10 +95,13 @@ class AddUsername extends Component {
 
 const mapStateToProps = (state) => ({
     isDark: state.app.colorScheme == 'dark',
+    isLoading: state.app.isLoading,
+    registerEmailSuccess: state.app.registerEmailSuccess,
+    errorMessage: state.app.errorMessage,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-
+    registerEmail: (email,username) => dispatch(AppActions.registerEmail(email,username))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddUsername)

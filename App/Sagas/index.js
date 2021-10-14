@@ -14,11 +14,11 @@ import { AppTypes } from '../Redux/AppRedux'
 
 import { startup } from './StartupSagas'
 import {
-    login,
-    forgotPassword,
-    uploadImage,
-    logOut,
-    signup,
+    registerEmail,
+    registerPassword,
+    verifyEmail,
+    sendToken,
+    refreshToken
 } from './ApiSagas'
 
 
@@ -28,15 +28,13 @@ import {
 // to the sagas which need it.
 export const userApi = UserAPI.create()
 
-/* ------------- Connect Types To Sagas ------------- */
-
+/* ------------- Connect Types To Sagas ------------- */ 
 export default function* root() {
     yield all([
-        takeLatest(AppTypes.LOGIN, login, userApi),
-        takeLatest(AppTypes.SIGNUP, signup, userApi),
-        takeLatest(AppTypes.FORGOT_PASSWORD, forgotPassword, userApi),
-        takeLatest(AppTypes.UPLOAD_IMAGE, uploadImage, userApi),
-
-        takeLatest(AppTypes.SIGN_OUT, logOut, userApi),
+        takeLatest(AppTypes.REGISTER_EMAIL, registerEmail, userApi),
+        takeLatest(AppTypes.REGISTER_PASSWORD, registerPassword, userApi),
+        takeLatest(AppTypes.VERIFY_EMAIL, verifyEmail, userApi),
+        takeLatest(AppTypes.SEND_TOKEN, sendToken, userApi),
+        takeLatest(AppTypes.REFRESH_TOKEN, refreshToken, userApi),
     ])
 }

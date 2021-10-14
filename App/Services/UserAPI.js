@@ -8,9 +8,11 @@ const create = (baseURL = BASE_URL) => {
         timeout: 60000
     })
 
-
-    const registerEmail = (data, headers) => {
-        return api.post(`${API_VERSION_1}${APIs.registerEmail}`, data, { headers })
+    const registerEmail = (data) => {
+        return api.post(`${API_VERSION_1}${APIs.registerEmail}`, data, {headers:{
+            "accept": "*/*",
+            "Content-Type": "application/json"
+        }})
     }
 
     const registerPassword = (data, headers) => {

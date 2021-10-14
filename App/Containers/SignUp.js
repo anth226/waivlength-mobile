@@ -4,6 +4,8 @@ import { BeforeLoginHeader, Input, FloatingView, Button } from '../Components';
 import { connect } from 'react-redux';
 import { bg } from '../Assets';
 import dynamicStyles from './Styles/SignUpStyles';
+import { STRING_UTILS } from '../Utils';
+import AppActions from '../Redux/AppRedux';
 
 class SignUp extends Component {
     constructor(props) {
@@ -20,9 +22,7 @@ class SignUp extends Component {
     componentWillUnmount() {
     }
 
-    onSignUp = async () => {
-
-    }
+  
 
     componentDidUpdate(prevProps) {
 
@@ -46,7 +46,9 @@ class SignUp extends Component {
                                     onChangeText={(email) => this.setState({ email })}
                                     inputContainerStyle={styles.inputContainerStyle}
                                 />
-                                <Button title={'Next'} hasArrow onPress={() => navigation.navigate('VerifyEmail')} />
+                                <Button title={'Next'} hasArrow onPress={() => {this.props.navigation.navigate('AddUsername',{
+                                    email:email
+                                }) }} />
                             </View>
                         </>
                     } />
@@ -58,10 +60,12 @@ class SignUp extends Component {
 
 const mapStateToProps = (state) => ({
     isDark: state.app.colorScheme == 'dark',
+    isLoading: state.app.isLoading,
+    registerEmailSuccess: state.app.registerEmailSuccess,
+    errorMessage: state.app.errorMessage,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

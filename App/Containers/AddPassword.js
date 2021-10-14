@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { ImageBackground, Pressable, Keyboard, Text, View } from 'react-native'
-import { BeforeLoginHeader, Input, FloatingView, Button } from '../Components';
+import { BeforeLoginHeader, Input, FloatingView, Button, LoadingSpinner } from '../Components';
 import { connect } from 'react-redux';
 import { bg } from '../Assets';
 import dynamicStyles from './Styles/AddPasswordStyles';
-
+import { STRING_UTILS } from '../Utils';
+import AppActions from '../Redux/AppRedux';
 class AddPassword extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            email: '',
-            showText: false
+            password: '',
+            showText: false,
+            isvalidEmail: true
         }
     }
 
@@ -21,17 +23,37 @@ class AddPassword extends Component {
     componentWillUnmount() {
     }
 
-    onSignUp = async () => {
+    onRegisterPassword = async () => {
+        const { password } = this.state;
+        const { registerPassword } = this.props;
+        const { params } = this.props.route;
+        const email = params.email
 
+        if (email === '' || !STRING_UTILS.validateEmail(email)) {
+            this.setState({ isvalidEmail: false })
+        }
+        setTimeout(() => {
+            const { isvalidEmail } = this.state;
+            if (isvalidEmail) {
+                registerPassword(email, password)
+            }
+        }, 300)
     }
 
     componentDidUpdate(prevProps) {
-
+        const { registerPasswordSuccess, errorMessage, navigation } = this.props;
+        if (registerPasswordSuccess != prevProps.registerPasswordSuccess && registerPasswordSuccess != null) {
+            if (registerPasswordSuccess) {
+                navigation.navigate('ProfilePicture')
+            } else {
+                alert(`${errorMessage}`)
+            }
+        }
     }
 
     render() {
         const { password, showText } = this.state;
-        const { isDark, navigation } = this.props;
+        const { isDark, navigation, isLoading } = this.props;
         const styles = dynamicStyles(isDark)
         return (
             <ImageBackground source={bg} style={styles.background} >
@@ -50,12 +72,13 @@ class AddPassword extends Component {
                                     onRightButtonPress={() => this.setState({ showText: !showText })}
                                     inputContainerStyle={styles.inputContainerStyle}
                                 />
-                                <Button isDark={isDark} title={'Next'} hasArrow onPress={() => navigation.navigate('ProfilePicture')} />
+                                <Button isDark={isDark} title={'Next'} hasArrow onPress={() => this.onRegisterPassword()} />
                             </View>
                         </>
                     }
                     />
                 </Pressable>
+                <LoadingSpinner isDark={isDark} isLoading={isLoading} />
             </ImageBackground>
         )
     }
@@ -63,10 +86,13 @@ class AddPassword extends Component {
 
 const mapStateToProps = (state) => ({
     isDark: state.app.colorScheme == 'dark',
+    isLoading: state.app.isLoading,
+    registerPasswordSuccess: state.app.registerPasswordSuccess,
+    errorMessage: state.app.errorMessage,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-
+    registerPassword: (email, password) => dispatch(AppActions.registerPassword(email, password))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddPassword)
